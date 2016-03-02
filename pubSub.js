@@ -1,5 +1,7 @@
+// pubSub function is bind to the window object
 var pubSub = (function (window) {
     var events = {};
+    // function to handle event
     var _pubSub = function (id) {
         var callbacks, method,
             event = id && events[id];
@@ -18,8 +20,9 @@ var pubSub = (function (window) {
         }
         return event;
     }
-
-    _pubSub.handleEvents = function (event) { // handle events with pub sub
+    
+    // handle events with pub sub
+    _pubSub.handleEvents = function (event) { 
         if (!_pubSub.handleEvents._cached_elements) _pubSub.handleEvents._cached_elements = [];
         var pubsub_data_name  = "pubsub-event-name",
             $target           = $(event.target),
